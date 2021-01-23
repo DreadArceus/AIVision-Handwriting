@@ -29,7 +29,7 @@ def train_and_test(train_images: np.ndarray, train_labels: np.ndarray, test_imag
     ])
     model.compile(optimizer='Adam',
                   loss=keras.losses.MeanSquaredError(), metrics=['accuracy'])
-    log_dir = 'logs/fit' + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    log_dir = 'logs/fit/' + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     tb_callback = keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
     history = model.fit(
         train_data.repeat(),
