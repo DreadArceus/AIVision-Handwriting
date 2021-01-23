@@ -1,7 +1,7 @@
 import datetime
 import tensorflow as tf
 from tensorflow import keras
-import tensorboard
+# import tensorboard
 import numpy as np
 
 
@@ -13,7 +13,7 @@ def process_data(x, y):
     xp = tf.convert_to_tensor(x,dtype=np.float64)
     yp = tf.one_hot(y, depth=10)
     data = tf.data.Dataset.from_tensor_slices((xp, yp)).map(alter_pixels)
-    data = data.batch(1000)
+    data = data.batch(200)
     return data
 
 
@@ -33,8 +33,8 @@ def train_and_test(train_images: np.ndarray, train_labels: np.ndarray, test_imag
     tb_callback = keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
     history = model.fit(
         train_data.repeat(),
-        epochs=30,
-        steps_per_epoch=2000,
+        epochs=20,
+        steps_per_epoch=200,
         validation_data=test_data.repeat(),
         validation_steps=10,
         callbacks=[tb_callback])
