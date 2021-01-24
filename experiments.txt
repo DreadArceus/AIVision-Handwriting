@@ -1,0 +1,8 @@
+All accuracies measured within 10 epochs (200 steps each)
+
+91% cap:
+    784 -> 10
+96% cap:
+    784 -> 784/4 -> 10
+    784 -> 784/4 -> 784/16 -> 10
+    784 -> 100 -> 25 -> 10
