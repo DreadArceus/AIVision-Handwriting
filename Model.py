@@ -38,4 +38,3 @@ def train_and_test(train_images: np.ndarray, train_labels: np.ndarray, test_imag
         validation_data=test_data.repeat(),
         validation_steps=10,
         callbacks=[tb_callback])
-    print(history)
